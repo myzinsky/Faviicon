@@ -5,6 +5,8 @@
 
 var Faviicon = {};
 
+// TODO: this approach is adopted from owncloud,
+//       however it doesnt seem to work 100% for all windows ...
 Faviicon.add = function()
 {
 	var serv = safari.extension.settings.serv;
@@ -34,6 +36,7 @@ Faviicon.add = function()
     }
 }
 
+// TODO:
 //Faviicon.ImageExist = function(url)
 //{
 //    var img = new Image();
@@ -56,12 +59,18 @@ Faviicon.get = function(url)
             var baseurl = tmp.origin;
             var faviconurl = baseurl + "/favicon.ico";
 
-            // Other Data:
+            // Title Data:
             var title = val.title;
+            var titlestring = "";
+            if(safari.extension.settings.title == true)
+            {
+                titlestring = title;
+            }
 
             // Render Content:
             //
             // TODO: ADD THIS SVG IN CASE THE FAVICON IS NOT FOUND:
+            //       Get rid of google approach below ...
             //if(Faviicon.ImageExist(faviconurl) == false)
             //{
             //    var str = "<a href=\"" + fullurl + "\">" +
@@ -80,9 +89,14 @@ Faviicon.get = function(url)
             //else
             //{
                 var str = "<a href=\"" + fullurl + "\">" +
-                    "<img src=\"" + faviconurl + "\"" +
+                    "<img class=\"left\" src=\"" + faviconurl + "\"" +
                     "onerror=\"this.src='http://www.google.com/s2/favicons?domain_url=" + fullurl + "';\"" +
-                    "width=\"16\" height=\"16\" alt=\"\" title=\"\" url_piece=\"/\">" +
+                    "width=\"16\" height=\"16\" alt=\"\" title=\"\" url_piece=\"/\" " + 
+                    "title=\"" + title + "\" " +
+                    ">" +
+                    "<div class=\"text left\">" +
+                    titlestring +
+                    "</div>" +
                     "</a>";
                 $("#content").append(str);
             //}
@@ -92,6 +106,10 @@ Faviicon.get = function(url)
 
 Faviicon.onLoad = function()
 {
+    // Clear Everything:
+    $( "#content" ).empty();
+    $( "#add" ).empty();
+
     // Get Configuration:
 	var user = safari.extension.settings.user;
 	var pass = safari.extension.settings.pass;
@@ -115,7 +133,7 @@ Faviicon.onLoad = function()
 
 Faviicon.settingsChanged = function(event)
 {
-	if(event.key == "user") {
+	if(event.key == "user") { // Just keept that for documentation
 		Faviicon.onLoad();
 	}
 	else

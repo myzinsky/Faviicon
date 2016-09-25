@@ -34,5 +34,17 @@
 		<key>Type</key>
 		<string>TextField</string>
 	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>false</string>
+		<key>Key</key>
+		<string>title</string>
+		<key>Secure</key>
+		<false/>
+		<key>Title</key>
+		<string>Show Title</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
 </array>
 </plist>

@@ -19,9 +19,10 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
+    /*
+    font-size: 100%;
+    vertical-align: baseline;*/
 }
 
 article, aside, details, figcaption, figure, 
@@ -30,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-    line-height: 1;
+    line-height: 30px;
 }
 
 ol, ul {
@@ -53,19 +54,38 @@ table {
 }
 
 img, svg {
-    margin: 7px;
+    padding: 7px;
+    margin-left:5px;
 }
 
 div {
     height: 30px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.text
+{
+    position: relative;
+    line-height: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+a {
+  color: gray;
+  text-decoration: none; /* no underline */
 }
 
 .buttonc {
     margin: 7px;
-    padding: 0px;
+    padding: 7px;
     width: 32px;
     height: 16px;
-    font-family: "Verdana";
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    
 }
 
 .left {
