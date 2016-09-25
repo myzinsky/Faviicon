@@ -40,8 +40,10 @@
 			</array>
 		</dict>
 	</dict>
+	<key>Description</key>
+	<string>A Safari Favicon Toolbar for Owncloud Bookmarks</string>
 	<key>DeveloperIdentifier</key>
-	<string>0000000000</string>
+	<string>PGFS458M58</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
